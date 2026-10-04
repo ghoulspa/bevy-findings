@@ -4,3 +4,5 @@ theme: jekyll-theme-minimal
 exclude:
   - repros/*/v18/target
   - repros/*/v19/target
+plugins:
+  - jekyll-sitemap
