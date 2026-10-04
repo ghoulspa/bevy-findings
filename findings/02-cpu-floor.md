@@ -29,5 +29,9 @@ Two related costs found on the way, with what took them down:
   command encoder back only when the schedule applies its deferred
   buffers, at the end, so every pass system records into an encoder and
   a command buffer of its own (21 command buffers a frame for two
-  cameras). Handing the encoder on when the system returns (a `Drop` on
-  `RenderContext`) gave one or two.
+  cameras), each finished serially. Handing the encoder on when the
+  system returns (a `Drop` on `RenderContext`), six systems to an
+  encoder, and finishing the encoders in parallel before the submit
+  brought the lowest preset from 1.11x to 1.015x of 0.18. Fewer, longer
+  command buffers make `finish` serial; more, shorter ones make `submit`
+  slower (about 20 us a buffer on the i5).
