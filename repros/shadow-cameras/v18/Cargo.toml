@@ -1,0 +1,18 @@
+[package]
+name = "shadow-cameras-v18"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[[bin]]
+name = "shadow-cameras-v18"
+path = "../src/main.rs"
+
+[dependencies]
+bevy = "=0.18.1"
+
+[features]
+v19 = []
+
+
+[workspace]
