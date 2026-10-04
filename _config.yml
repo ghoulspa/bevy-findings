@@ -1,0 +1,6 @@
+title: Bevy findings
+description: Performance and behaviour findings in Bevy 0.19 against 0.18, with stock repros
+theme: jekyll-theme-minimal
+exclude:
+  - repros/*/v18/target
+  - repros/*/v19/target
