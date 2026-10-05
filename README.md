@@ -20,6 +20,7 @@ to take to the tracker in your own words.
 | [5](findings/05-diagnostics-merge-cameras.md) | A pass two cameras run reads as one camera's time in the render diagnostics | 0.18.1, 0.19.1 | not a regression (same in 0.18.1) | unreported |
 | [6](findings/06-frame-latency-read-once.md) | `Window::desired_maximum_frame_latency` is read only when the window is first extracted | 0.18.1, 0.19.1 | not a regression (same in 0.18.1) | unreported |
 | [7](findings/07-macos-exit-deadlock.md) | Exiting on macOS deadlocks about a third of the time (the render thread waits on a main-thread task while the main thread waits on it) | 0.19.1 | long-standing (open since 2024); not seen on 0.18.1 here | open upstream since 2024, fix PR closed unmerged |
+| [8](findings/08-draw-order-reversed.md) | Opaque meshes are drawn in reverse spawn order: without a depth prepass, a scene spawned near to far shades about eight times the main pass it did on 0.18 | 0.19.1 | regression (0.18.1 drew in spawn order) | unreported |
 
 ## Test machine
 
