@@ -33,8 +33,17 @@ own, all filling a 1920x1080 view, sixteen point lights, MSAA 4.
 | `--spawn near-first --prepass` | 2.67 ms | 0.20 ms | 3.64 ms | 0.21 ms |
 | `--spawn far-first --prepass` | 2.73 ms | 0.21 ms | 3.62 ms | 0.21 ms |
 
-The same scene, spawned the same way, costs about eight times the main
-pass on 0.19.1 that it did on 0.18.1, or the other way round. A depth
+On the test machine (GTX 1650, i5-9500, Vulkan), three launches each:
+
+| | 0.18.1 frame | 0.18.1 main pass | 0.19.1 frame | 0.19.1 main pass |
+|---|---|---|---|---|
+| `--spawn near-first` | 4.08 ms | 3.62 ms | 44.31 ms | 43.79 ms |
+| `--spawn far-first` | 125.09 ms | 120.61 ms | 6.75 ms | 6.09 ms |
+| `--spawn near-first --prepass` | 4.60 ms | 3.19 ms | 6.05 ms | 3.22 ms |
+| `--spawn far-first --prepass` | 7.42 ms | 3.13 ms | 6.14 ms | 3.22 ms |
+
+The same scene, spawned the same way, costs eight to twelve times the
+main pass on 0.19.1 that it did on 0.18.1, or the other way round. A depth
 prepass removes the difference (the remaining gap between the versions
 is finding 2's CPU floor).
 
