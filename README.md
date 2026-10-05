@@ -21,6 +21,7 @@ to take to the tracker in your own words.
 | [6](findings/06-frame-latency-read-once.md) | `Window::desired_maximum_frame_latency` is read only when the window is first extracted | 0.18.1, 0.19.1 | not a regression (same in 0.18.1) | unreported |
 | [7](findings/07-macos-exit-deadlock.md) | Exiting on macOS deadlocks about a third of the time (the render thread waits on a main-thread task while the main thread waits on it) | 0.19.1 | long-standing (open since 2024); not seen on 0.18.1 here | open upstream since 2024, fix PR closed unmerged |
 | [8](findings/08-draw-order-reversed.md) | Opaque meshes are drawn in reverse spawn order: without a depth prepass, a scene spawned near to far shades about eight times the main pass it did on 0.18 | 0.19.1 | regression (0.18.1 drew in spawn order) | unreported |
+| [9](findings/09-video-memory-blocks.md) | On Vulkan the same data holds more video memory (wgpu 29 moved to gpu-allocator, whose default blocks are 128 to 256 MB): 1.82 GB against 1.44 in a stock repro, a gigabyte more in a larger application, which then pages on a 4 GB card | 0.19.1 | regression (0.18.1 held less) | unreported |
 
 ## Test machine
 

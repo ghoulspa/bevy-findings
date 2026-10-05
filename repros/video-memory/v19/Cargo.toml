@@ -1,0 +1,23 @@
+[package]
+name = "video-memory-v19"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[[bin]]
+name = "video-memory-v19"
+path = "../src/main.rs"
+
+[dependencies]
+bevy = "=0.19.1"
+# Only to turn on wgpu's live memory counters.
+wgpu = { version = "29", default-features = false, features = ["counters"] }
+
+[target.'cfg(windows)'.dependencies]
+windows = { version = "0.58", features = ["Win32_Graphics_Dxgi"] }
+
+[features]
+v19 = []
+default = ["v19"]
+
+[workspace]
